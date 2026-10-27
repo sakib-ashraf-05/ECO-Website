@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { FiCalendar } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function BlogCard({ blog, index }) {
+  const location = useLocation();
+
   return (
     <motion.article
       initial={{ opacity: 0, y: 20 }}
@@ -33,6 +35,7 @@ export default function BlogCard({ blog, index }) {
             </div>
             <Link
               to={`/blog/${blog.id}`}
+              state={{ from: location.pathname }}
               className="text-sm font-medium text-[#3FAE5C] group-hover:underline"
             >
               Continue Reading

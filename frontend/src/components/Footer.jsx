@@ -38,10 +38,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              {['Home', 'Noixorgo', 'Events', 'Blog', 'Gallery', 'Team'].map((item) => (
+              {['Home', 'Noixorgo', 'Events', 'Blog', 'Gallery', 'Team', 'Help Us'].map((item) => (
                 <li key={item}>
                   <Link
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    to={item === 'Home' ? '/' : item === 'Help Us' ? '/help-us' : `/${item.toLowerCase()}`}
                     className="text-gray-300 hover:text-[#3FAE5C] transition-colors"
                   >
                     {item}

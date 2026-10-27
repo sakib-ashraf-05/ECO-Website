@@ -46,9 +46,12 @@ export default function EventCard({ event, index }) {
             </div>
           </div>
           <p className="text-muted mb-4 flex-grow line-clamp-3">{event.description}</p>
-          <Button variant="primary" className="w-full">
-            <a href={event.link}>Register Now</a>
-          </Button>
+          {
+            event.status == 'upcoming'?
+              <Button variant="primary" className="w-full">
+                <a href={event.link}>Register Now</a>
+              </Button>:null
+          }
         </div>
       </div>
     </motion.div>

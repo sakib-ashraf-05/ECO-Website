@@ -28,6 +28,7 @@ export default function Navbar() {
     { name: 'Blog', path: '/blog' },
     { name: 'Gallery', path: '/gallery' },
     { name: 'Team', path: '/team' },
+    { name: 'Help Us', path: '/help-us' },
   ];
 
   return (

@@ -1,25 +1,44 @@
+import { useEffect } from 'react';
 import { FiArrowLeft, FiCalendar, FiUser } from 'react-icons/fi';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import blogsData from '../data/blogs.json';
 
 export default function BlogPostPage() {
   const { blogId } = useParams();
+  const location = useLocation();
   const blog = blogsData.find((item) => String(item.id) === blogId);
+  const backPath = location.state?.from || '/blog';
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [blogId]);
 
   if (!blog) {
-    return <Navigate to="/blog" replace />;
+    return (
+      <main className="min-h-screen bg-[#FAFAFA] pt-20">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
+          <Link
+            to={backPath}
+            className="inline-flex items-center gap-2 text-[#3FAE5C] font-medium hover:underline"
+          >
+            <FiArrowLeft className="w-4 h-4" />
+            Back
+          </Link>
+        </div>
+      </main>
+    );
   }
 
   return (
     <main className="min-h-screen bg-[#FAFAFA] pt-20">
       <article className="max-w-4xl mx-auto px-6 lg:px-8 py-16">
         <Link
-          to="/blog"
+          to={backPath}
           className="inline-flex items-center gap-2 text-[#3FAE5C] font-medium mb-8 hover:underline"
         >
           <FiArrowLeft className="w-4 h-4" />
-          Back to Blog
+          Back
         </Link>
 
         <motion.div

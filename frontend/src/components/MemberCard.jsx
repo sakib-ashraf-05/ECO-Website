@@ -6,7 +6,7 @@ export default function MemberCard({ member, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.3, delay: Math.min(index * 0.03, 0.15) }}
     >
       <div className="bg-white rounded-2xl p-6 text-center shadow-card hover-lift">
         {/* Profile Image */}
@@ -16,6 +16,7 @@ export default function MemberCard({ member, index }) {
             alt={member.name}
             className="w-full h-full rounded-full object-cover border-4 border-[#3FAE5C]/20 hover:scale-105 transition-transform duration-300"
             loading="lazy"
+            decoding="async"
           />
         </div>
 

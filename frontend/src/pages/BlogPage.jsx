@@ -52,6 +52,7 @@ export default function BlogPage() {
                   <span className="text-sm text-muted">{blogsData[0].date}</span>
                   <Link
                     to={`/blog/${blogsData[0].id}`}
+                    state={{ from: '/blog' }}
                     className="text-[#3FAE5C] font-medium hover:underline"
                   >
                     Read More

@@ -13,6 +13,7 @@ const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
 const GalleryPage = lazy(() => import('./pages/GalleryPage'));
 const TeamPage = lazy(() => import('./pages/TeamPage'));
+const HelpUsPage = lazy(() => import('./pages/HelpUsPage'));
 
 /** How long the splash runs, fade included. Full length the very first time this
  *  browser loads the site, a short version on every visit after that. */
@@ -63,6 +64,7 @@ export default function App() {
             <Route path="/blog/:blogId" element={<BlogPostPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
             <Route path="/team" element={<TeamPage />} />
+            <Route path="/help-us" element={<HelpUsPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </Suspense>
